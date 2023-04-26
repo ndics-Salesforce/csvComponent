@@ -1,0 +1,17 @@
+<template>
+  <lightning-card title="Export Data as CSV" icon-name="custom:custom63">
+    <template if:true={Opportunity.data}>
+      <div class="slds-p-around_medium lgc-bg-inverse">
+        <p>データをダウンロード &nbsp;
+          <lightning-button icon-name="utility:download" label="Download as CSV" title="Download CSV File" onclick={downloadCSVFile} variant="brand"></lightning-button>
+        </p>
+      </div>
+      <div class="slds-m-around_medium">
+        <lightning-datatable columns={columns} data={Opportunity.data} hide-checkbox-column="true" key-field="id"></lightning-datatable>
+      </div>
+    </template>
+    <template if:true={Opportunity.error}>
+      <p>No Opportunity found.</p>
+    </template>
+  </lightning-card>    
+</template>
